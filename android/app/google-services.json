@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "613850785019",
+    "firebase_url": "https://agropool-app-default-rtdb.firebaseio.com",
+    "project_id": "agropool-app",
+    "storage_bucket": "agropool-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613850785019:android:38e2c7269f4a26e6217c5e",
+        "android_client_info": {
+          "package_name": "com.app.agropool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613850785019-j0aek4jasr8rao0tujhhdf17jd2demrf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfavrXq4sTIO8wu3lV61Q3GDc7goVyIlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613850785019-j0aek4jasr8rao0tujhhdf17jd2demrf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613850785019:android:47904a87a6bef8fb217c5e",
+        "android_client_info": {
+          "package_name": "com.app.agropool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613850785019-j0aek4jasr8rao0tujhhdf17jd2demrf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfavrXq4sTIO8wu3lV61Q3GDc7goVyIlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613850785019-j0aek4jasr8rao0tujhhdf17jd2demrf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
