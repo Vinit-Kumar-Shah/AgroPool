@@ -1,6 +1,10 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:agropool/appdata.dart';
+import 'package:intl/intl.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:http/http.dart' as http;
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -9,9 +13,50 @@ class SearchScreen extends StatefulWidget {
   _SearchScreenState createState() => _SearchScreenState();
 }
 
+class BasicDateField extends StatelessWidget {
+  final format = DateFormat("yyyy-MM-dd");
+  @override
+  Widget build(BuildContext context) {
+    return Column(children: <Widget>[
+      Text('Basic date field (${format.pattern})'),
+      DateTimeField(
+        format: format,
+        onShowPicker: (context, currentValue) {
+          return showDatePicker(
+              context: context,
+              firstDate: DateTime(1900),
+              initialDate: currentValue ?? DateTime.now(),
+              lastDate: DateTime(2100));
+        },
+      ),
+    ]);
+  }
+}
+
+class BasicTimeField extends StatelessWidget {
+  final format = DateFormat("HH:mm");
+  @override
+  Widget build(BuildContext context) {
+    return Column(children: <Widget>[
+      Text('Basic time field (${format.pattern})'),
+      DateTimeField(
+        format: format,
+        onShowPicker: (context, currentValue) async {
+          final time = await showTimePicker(
+            context: context,
+            initialTime: TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+          );
+          return DateTimeField.convert(time);
+        },
+      ),
+    ]);
+  }
+}
+
 class _SearchScreenState extends State<SearchScreen> {
   TextEditingController pickupcontroller = TextEditingController();
   TextEditingController dropoffcontroller = TextEditingController();
+  final format = DateFormat("yyyy-MM-dd HH:mm");
   @override
   Widget build(BuildContext context) {
     String Add =
@@ -128,6 +173,51 @@ class _SearchScreenState extends State<SearchScreen> {
                                       isDense: true,
                                       contentPadding: EdgeInsets.only(
                                           left: 11.0, top: 8.0, bottom: 8.0)),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 16.0,
+                      ),
+                      Row(
+                        children: [
+                          Image.asset(
+                            "images/timeicon.png",
+                            height: 16.0,
+                            width: 16.0,
+                          ),
+                          SizedBox(
+                            width: 18.0,
+                          ),
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[400],
+                                  borderRadius: BorderRadius.circular(5.0)),
+                              child: Padding(
+                                padding: EdgeInsets.all(3.0),
+                                child: DateTimeField(
+                                  format: format,
+                                  onShowPicker: (context, currentValue) async {
+                                    final date = await showDatePicker(
+                                        context: context,
+                                        firstDate: DateTime(1900),
+                                        initialDate: currentValue ?? DateTime.now(),
+                                        lastDate: DateTime(2100));
+                                    if (date != null) {
+                                      final time = await showTimePicker(
+                                        context: context,
+                                        initialTime:
+                                        TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+                                      );
+                                      return DateTimeField.combine(date, time);
+                                    } else {
+                                      return currentValue;
+                                    }
+                                  },
                                 ),
                               ),
                             ),

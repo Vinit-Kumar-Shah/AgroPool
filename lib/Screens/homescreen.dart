@@ -8,6 +8,7 @@ import 'package:agropool/Screens/searchscreen.dart';
 import 'package:agropool/appdata.dart';
 import 'package:agropool/methods.dart';
 import 'package:provider/provider.dart';
+import 'package:agropool/configmap.dart';
 
 import 'dart:async';
 
@@ -74,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Rengoku Kyōjurō',
+                        'Samar Singh',
                         style: TextStyle(
                             fontSize: 18.0, fontFamily: "BoltRegular"),
                       ),
@@ -119,10 +120,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-
       appBar: AppBar(
         title: Text(
-          'Welcome to Agro-Pool',
+          'Agro-Pool',
           style: TextStyle(fontFamily: "BoltSemiBold"),
         ),
         backgroundColor: Colors.green,
@@ -139,8 +139,12 @@ class _HomeScreenState extends State<HomeScreen> {
               });
               getLocation();
               _googleMapController = controller;
-            }
-            ),
+            }),
+        Image(
+          image: AssetImage('images/map.png'),
+          alignment: Alignment.center,
+          width: 1000.0,
+        ),
         Positioned(
           left: 0.0,
           bottom: 0.0,
@@ -199,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Icon(
                             Icons.search,
-                            color: Colors.yellow,
+                            color: Colors.green,
                           ),
                           SizedBox(
                             width: 10.0,
