@@ -30,9 +30,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(primaryColor: Colors.green),
         routes: {
-          HomeScreen.ScreenId: (context) => HomeScreen(),
-          LoginScreen.ScreenId: (context) => LoginScreen(),
-          RegistrationScreen.ScreenId: (context) => RegistrationScreen()
+          HomeScreen.ScreenId: (context) => HomeScreen(), // Page for home screen
+          LoginScreen.ScreenId: (context) => LoginScreen(), // Page for login screen
+          RegistrationScreen.ScreenId: (context) => RegistrationScreen() // Page for registration screen
         },
         debugShowCheckedModeBanner: false,
         title: 'Agro-Pool',
